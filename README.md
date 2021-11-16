@@ -5,7 +5,7 @@
 
 公众号：鸣人哈说java（加入我微信）
 
-![img](file:///E:\360MoveData\Users\lenovo\Documents\Tencent Files\2716013756\Image\C2C\Image1\B1643D499E4099E10717C2245E28A256.jpg)
+![4snimn.jpg](https://z3.ax1x.com/2021/09/25/4snimn.jpg)
 
 开发环境
 
@@ -24,33 +24,37 @@
 
  ![验证码 登录模块：重构前 (2)](https://z3.ax1x.com/2021/11/16/IW4s91.png)
 
-验证码登录模块重构后
+验证码登录模块重构后![验证码 登录模块：重构后 (2)](https://z3.ax1x.com/2021/11/16/IW4DhR.png)
 
-<img src="https://z3.ax1x.com/2021/11/16/IW4DhR.md.png" alt="IW4DhR.png"  />
-
-![IW41ts.png](https://z3.ax1x.com/2021/11/16/IW41ts.md.png)
+![登录凭证（重构前） (1)](https://z3.ax1x.com/2021/11/16/IW41ts.png)
 
 针对凭证这种过期的特性，我考虑到存入redis中
 
-![IW4Gpq.png](https://z3.ax1x.com/2021/11/16/IW4Gpq.md.png)
+![登录凭证（重构后） (1)](https://z3.ax1x.com/2021/11/16/IW4Gpq.png)
 
 使用Redis存储登录ticket和验证码，解决分布式session问题（以上，而且key过期就无效很符合业务场景）
 
-<img src="https://z3.ax1x.com/2021/11/16/IW4UnU.md.png" alt="IW4UnU.png" style="zoom:150%;" />
+重构前
 
-<img src="https://z3.ax1x.com/2021/11/16/IW43hn.md.png" alt="IW43hn.png" style="zoom:150%;" />
+![请求拦截器（重构前） (1)](https://z3.ax1x.com/2021/11/16/IW4UnU.png)
+
+重构后
+
+![请求拦截器（重构后） (1)](https://z3.ax1x.com/2021/11/16/IW43hn.png)
+
+
 
 注册激活模块  @mengzhiayaun
 
-<img src="https://z3.ax1x.com/2021/11/16/IW46c6.md.png" alt="IW46c6.png" style="zoom:150%;" />
+![注册激活账号 (1)](https://z3.ax1x.com/2021/11/16/IW46c6.png)
 
 l 使用Redis的set实现点赞，zset实现关注，HyperLogLog统计UV，Bitmap统计DAU；
 
 l 使用Kafka处理发送评论、点赞和关注等系统通知，起到解耦和异步调用的作用；
 
-<img src="https://z3.ax1x.com/2021/11/16/IW4tXT.md.png" alt="IW4tXT.png" style="zoom:150%;" />
+![点赞功能 (1)](https://z3.ax1x.com/2021/11/16/IW4tXT.png)
 
-<img src="https://z3.ax1x.com/2021/11/16/IW4J10.md.png" alt="IW4J10.png" style="zoom:150%;" />
+![关注模块 (1)](https://z3.ax1x.com/2021/11/16/IW4J10.png)
 
 系统的交通中枢  @mengzhiayuan   设计的优雅永不过时
 
@@ -58,19 +62,19 @@ l 使用Kafka处理发送评论、点赞和关注等系统通知，起到解耦�
 
 缓存与数据库系统的设计
 
-<img src="https://z3.ax1x.com/2021/11/16/IW4y1x.md.png" alt="重构&redis缓存用户信息 (1)" style="zoom:150%;" />
+![重构&redis缓存用户信息 (1)](https://z3.ax1x.com/2021/11/16/IW4y1x.png)
 
 网站数据统计
 
-<img src="https://z3.ax1x.com/2021/11/16/IW40AJ.md.png" alt="IW40AJ.png" style="zoom:150%;" />
+![网站数据统计](https://z3.ax1x.com/2021/11/16/IW40AJ.png)
 
 热帖排行
 
-<img src="https://z3.ax1x.com/2021/11/16/IW4d74.md.png" alt="IW4d74.png" style="zoom:150%;" />
+![热帖排名 (4)](https://z3.ax1x.com/2021/11/16/IW4d74.png)
 
 搜索模块
 
-<img src="https://z3.ax1x.com/2021/11/16/IW4aBF.md.png" alt="IW4aBF.png" style="zoom:150%;" />
+![搜索模块 (1)](https://z3.ax1x.com/2021/11/16/IW4aBF.png)
 
 
 
@@ -84,4 +88,8 @@ l 使用Kafka处理发送评论、点赞和关注等系统通知，起到解耦�
 - 使用Kafka处理发送评论、点赞和关注等系统通知，并使用事件进行封装，构建了强大的异步消息系统。
 - 使用Elasticsearch做全局搜索，并通过事件封装，增加关键词高亮显示等功能。
 - 对热帖排行模块，使用分布式缓存Redis和本地缓存Caffeine作为多级缓存，避免了缓存雪崩，将QPS提升了20倍(10-200)，大大提升了网站访问速度。并使用Quartz定时更新热帖排行。
+
+加油！！！！！ @mengzhiayaun  @周津卓
+
+![Screenshot 2021 07 29 225519](https://z3.ax1x.com/2021/07/29/Wqgwzn.jpg)
 
