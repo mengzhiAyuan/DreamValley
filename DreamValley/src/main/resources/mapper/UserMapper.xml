@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--        User selectById(int id);-->
+<!--        User selectByName(String username);-->
+<!--        User selectByEmail(String email);-->
+<!--        int insertUser(User user);-->
+<!--        int updateStatus(int id,int status);-->
+<!--        int updateHeader(int id,String headerUrl);-->
+<!--        int updatePassword(int id,String password);-->
+<mapper namespace="com.mengzhiayuan.naruto.dao.UserMapper">
+
+    <sql id="insertFields">
+        username, password, salt, email, type, status, activation_code, header_url, create_time
+    </sql>
+
+    <sql id="selectFields">
+        id, username, password, salt, email, type, status, activation_code, header_url, create_time
+    </sql>
+
+    <select id="selectById" resultType="User">
+        select <include refid="selectFields"></include>
+        from community.user
+        where id=#{id}
+    </select>
+
+    <select id="selectByName" resultType="User">
+        select <include refid="selectFields"></include>
+        from community.user
+        where username=#{username}
+    </select>
+
+    <select id="selectByEmail" resultType="User">
+        select <include refid="selectFields"></include>
+        from community.user
+        where email=#{email}
+    </select>
+
+    <insert id="insertUser" parameterType="User" keyProperty="id">
+        insert into community.user(<include refid="insertFields"></include>)
+        values(#{username},#{password},#{salt},#{email},#{type},#{status},#{activationCode},#{headerUrl},#{createTime})
+    </insert>
+
+    <update id="updateStatus">
+        update community.user set status=#{status}
+        where id=#{id}
+    </update>
+
+    <update id="updateHeader">
+        update community.user set header_url=#{headerUrl}
+        where id=#{id}
+    </update>
+
+    <update id="updatePassword">
+        update community.user set password=#{password}
+        where id=#{id}
+    </update>
+
+</mapper>

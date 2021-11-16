@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>梦之谷-激活账号</title>
+</head>
+<body>
+<div>
+	<p>
+		<b th:text="${email}">xxx@xxx.com</b>, 您好!
+	</p>
+
+	<p>
+		您正在注册梦之谷, 这是一封激活邮件, 请点击
+		<a th:href="${url}"> 此链接</a>,
+		激活您的梦之谷账号!
+		如果无法点击，第三方邮箱系统问题，请手动复制链接激活
+		<p>
+			<b th:text="${url}"></b>
+		</p>
+	</p>
+</div>
+</body>
+</html>
